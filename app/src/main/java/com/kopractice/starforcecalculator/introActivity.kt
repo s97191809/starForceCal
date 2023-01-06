@@ -18,10 +18,21 @@ class introActivity : AppCompatActivity() {
         viewBinding = ActivityIntroBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
 
-
         Glide.with(this).load(R.raw.pino).override(500,500).into(viewBinding.pinoGif)
+
+        var handler = Handler()
+        handler.postDelayed( {
+            var intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        },3000)}
+
+        override fun onPause() {
+            super.onPause()
+            finish()
+        }
 
 
     }
 
-}
+
+
